@@ -1,0 +1,17 @@
+# dsh-session-delete-next — bundle patch shipped with the package.
+#
+# `dsh.bundle.patch` makes `dsh plugin add` apply this layer automatically.
+# Installing by hand instead (writing the package into the profile's
+# node_modules) needs the same single row appended to the profile's own
+# cordis.patch.yml:
+#
+#   - insert:
+#       - id: dsh-session-delete-next
+#         name: dsh-session-delete-next
+#
+# The row name must equal the package name: the browser half registers itself
+# in the module loader under that same id, and the node half of the client
+# module system serves it because this row mounts the declaring package.
+- insert:
+    - id: dsh-session-delete-next
+      name: dsh-session-delete-next

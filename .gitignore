@@ -1,0 +1,9 @@
+# Local profile installs and build noise
+node_modules/
+*.log
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
