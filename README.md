@@ -3,6 +3,8 @@
 DSH（DeepSeek Harness）侧栏**会话删除**插件 —— 为当前运行时（`0.2.0-rc.2`）重写的版本，
 替代插件市场里因 peer 版本范围（`^0.1.0-rc.5`）不兼容而装不上的 `dsh-session-delete`。
 
+仓库：<https://github.com/ljp888/dsh-session-delete-next>
+
 [English](#english) | 中文
 
 ---
@@ -55,7 +57,21 @@ DSH（DeepSeek Harness）侧栏**会话删除**插件 —— 为当前运行时�
 
 ### 安装
 
-本仓库中的包已安装到当前 profile（`~/.dsh/profiles/desktop`）。手动安装步骤：
+最省事的方式是直接 clone 成 profile 的插件目录（`<profile>` 默认为 `~/.dsh/profiles/desktop`）：
+
+```bash
+git clone https://github.com/ljp888/dsh-session-delete-next.git \
+  ~/.dsh/profiles/desktop/node_modules/dsh-session-delete-next
+```
+
+Windows PowerShell 对应写法：
+
+```powershell
+git clone https://github.com/ljp888/dsh-session-delete-next.git `
+  "$env:USERPROFILE\.dsh\profiles\desktop\node_modules\dsh-session-delete-next"
+```
+
+然后手动复制文件也可以，步骤：
 
 1. 把整个包目录复制到 `<profile>/node_modules/dsh-session-delete-next/`
    （`<profile>` 默认为 `~/.dsh/profiles/desktop`）。
@@ -122,10 +138,11 @@ injection: `sidebar.workspaces.session.menu.item` for the menu row and
 `shell.overlay` for the dialog. Files are removed before any bookkeeping, so a
 failure never leaves a session that is hidden but still on disk.
 
-Install: copy the package into `<profile>/node_modules/dsh-session-delete-next/`
-and append the `- insert:` row to `<profile>/cordis.patch.yml`, then refresh the
-page. The `package.json` is deliberately left untouched because this package is
-not published to npm.
+Install: clone this repository straight into the profile's plugin directory —
+`git clone https://github.com/ljp888/dsh-session-delete-next.git ~/.dsh/profiles/desktop/node_modules/dsh-session-delete-next`
+— then append the `- insert:` row to `<profile>/cordis.patch.yml` and refresh the
+page. The profile `package.json` is deliberately left untouched because this
+package is not published to npm.
 
 ## License
 
